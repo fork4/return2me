@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>Return2Me</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <context-param>
+    <description>Your Twilio SID</description>
+    <param-name>twilio.sid</param-name>
+    <param-value></param-value>
+  </context-param>
+  <context-param>
+    <description>Your Twilio authorization token</description>
+    <param-name>twilio.token</param-name>
+    <param-value></param-value>
+  </context-param>
+  <context-param>
+    <description>The number associated with your Twilio account that you want the text message to come from.</description>
+    <param-name>twilio.from</param-name>
+    <param-value></param-value>
+  </context-param>
+  <context-param>
+    <description>The number associated with your Twilio account that you want the text message to prompt the customer to use to call back.</description>
+    <param-name>twilio.callback</param-name>
+    <param-value></param-value>
+  </context-param>
+  <servlet>
+    <description></description>
+    <display-name>FetchNumber</display-name>
+    <servlet-name>FetchNumber</servlet-name>
+    <servlet-class>com.fork4.return2me.FetchNumber</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FetchNumber</servlet-name>
+    <url-pattern>/fetch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GenerateExtension</display-name>
+    <servlet-name>GenerateExtension</servlet-name>
+    <servlet-class>com.fork4.return2me.GenerateExtension</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GenerateExtension</servlet-name>
+    <url-pattern>/gen</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Return2MeInitializer</display-name>
+    <servlet-name>Return2MeInitializer</servlet-name>
+    <servlet-class>com.fork4.return2me.Return2MeInitializer</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+</web-app>
